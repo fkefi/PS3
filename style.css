@@ -5,11 +5,15 @@ body {
     font-size: 16px;
     color: #333;
 
-    /* Κεντράρισμα με flex */
     display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Κάθετο κέντρο */
+    align-items: center;      /* Οριζόντιο κέντρο */
     min-height: 100vh;
     margin: 0;
 }
+
+
 
 /* Αριστερό μενού */
 .sidebar {
@@ -128,4 +132,96 @@ input, select, textarea, button {
 h1 {
     font-size: 24px;
     margin-bottom: 20px;
+    text-align: center;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 200px;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+
+
+
+
+
+  
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.checkbox-group input {
+    margin-right: 8px;
+}
+
+.center-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.center-btn:hover {
+    background-color: #0056b3;
+}
+
+.forgot-password {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    color: #0056b3;
 }
