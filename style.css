@@ -85,22 +85,6 @@ label, select {
     margin-bottom: 10px;
 }
 
-/* Στυλ για τα κουμπιά */
-button {
-    background-color: #a29491;
-    color: rgb(0, 0, 0);
-    border: 2px solid #4CAF50;
-    padding: 10px 20px;
-    text-align: center;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
 /* Στυλ για τον πίνακα και τις στήλες */
 table {
     width: 100%;
@@ -260,4 +244,41 @@ select {
 
 .forgot-password:hover {
     color: #0056b3;
+}
+
+
+/*apotuxia*/
+/* Στυλ για το περιεχόμενο της αποτυχίας */
+.error-container {
+    border: 2px solid red; /* Κόκκινο περίγραμμα γύρω από το κύριο κουτί */
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    background-color: #f8d7da; /* Ελαφρύ κόκκινο χρώμα φόντου */
+    border-radius: 8px;
+}
+
+/* Στυλ για το κείμενο του error */
+.error-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #721c24; /* Σκούρο κόκκινο για το κείμενο */
+    margin-bottom: 20px;
+}
+
+/* Στυλ για το περιεχόμενο της επιτυχίας */
+.success-container {
+    border: 2px solid #28a745; /* Πράσινο περίγραμμα γύρω από το κύριο κουτί */
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    background-color: #d4edda; /* Ανοιχτό πράσινο χρώμα φόντου */
+    border-radius: 8px;
+}
+
+/* Στυλ για το κείμενο της επιτυχίας */
+.success-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #155724; /* Σκούρο πράσινο για το κείμενο */
 }
