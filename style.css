@@ -4,80 +4,128 @@ body {
     font-family: "Noto Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
     color: #333;
-  
+
     /* Κεντράρισμα με flex */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  
     min-height: 100vh;
     margin: 0;
-  }
-  
-  /* Στυλ για το κύριο κουτί */
-  .filters {
+}
+
+/* Αριστερό μενού */
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    padding-top: 20px;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    padding: 12px 20px;
+    display: block;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #555;
+}
+
+/* Κουμπί Log Out στο κάτω μέρος */
+.logout-btn {
+    margin-top: auto;
+    background-color: #333;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #444;
+}
+
+/* Κύριο περιεχόμενο */
+.main-content {
+    margin-left: 270px;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Στυλ για το κουτί των φίλτρων */
+.filters {
     background-color: white;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px; /* Προαιρετικό: περιορισμός πλάτους για μικρές οθόνες */
-  }
-  
-  /* Στυλ για τα labels και select */
-  label, select {
+    max-width: 400px;
+}
+
+/* Στυλ για τα labels και select */
+label, select {
     display: block;
     width: 100%;
     margin-bottom: 10px;
-  }
-  
-  /* Στυλ για τα κουμπιά */
-  button {
-    background-color: a29491; /* Πράσινο χρώμα */
+}
+
+/* Στυλ για τα κουμπιά */
+button {
+    background-color: #a29491;
     color: rgb(0, 0, 0);
-    border: 2px solid #4CAF50; /* Πάχος border */
+    border: 2px solid #4CAF50;
     padding: 10px 20px;
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #45a049; /* Σκούρο πράσινο όταν περνάς από πάνω */
-  }
-  
-  /* Στυλ για πίνακες */
-  table {
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Στυλ για πίνακες */
+table {
     width: 100%;
-    border-collapse: collapse; /* Αφαίρεση διπλών borders */
-  }
-  
-  table th, table td {
-    border: 2px solid #333; /* Πάχος border */
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 2px solid #333;
     padding: 10px;
     text-align: left;
-  }
-  
-  table th {
-    background-color: #f2f2f2; /* Απαλό γκρι χρώμα για τα headers */
-  }
-  
-  table td {
-    background-color: #fff; /* Άσπρο φόντο για τα κελιά */
-  }
-  
-  /* Στυλ για borders σε όλα τα στοιχεία που έχουν border */
-  input, select, textarea, button {
-    border: 2px solid #4CAF50; /* Χρώμα border */
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+table td {
+    background-color: #fff;
+}
+
+/* Στυλ για borders σε όλα τα στοιχεία που έχουν border */
+input, select, textarea, button {
+    border: 2px solid #4CAF50;
     padding: 10px;
     border-radius: 5px;
-  }
-  
-  /* Στυλ για τίτλους (όπως h1) */
-  h1 {
+}
+
+/* Στυλ για τίτλους (όπως h1) */
+h1 {
     font-size: 24px;
     margin-bottom: 20px;
-  }
-  
+}

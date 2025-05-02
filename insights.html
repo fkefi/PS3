@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Επεξεργασία Εγγράφων</title>
+  <!-- Σύνδεση με το εξωτερικό CSS για τα κοινά στυλ -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+
+    
+    <!-- Επιλογή Μήνα και Έτους -->
+    <div class="filter-bar">
+      <label for="month">Μήνας: </label>
+      <select id="month">
+        <option>Ιανουάριος</option>
+        <option>Φεβρουάριος</option>
+        <option>Μάρτιος</option>
+        <option>Απρίλιος</option>
+        <option>Μάιος</option>
+        <option>Ιούνιος</option>
+        <option>Ιούλιος</option>
+        <option>Αύγουστος</option>
+        <option>Σεπτέμβριος</option>
+        <option>Οκτώβριος</option>
+        <option>Νοέμβριος</option>
+        <option>Δεκέμβριος</option>
+      </select>
+
+      <label for="year" style="margin-left: 20px;">Έτος: </label>
+      <select id="year">
+        <option>2023</option>
+        <option>2024</option>
+        <option selected>2025</option>
+      </select>
+
+
+    <!-- Σύνοψη Τραπεζών -->
+    <div class="table-container">
+      <h2 style="text-align: center;">Σύνοψη Τραπεζών</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Όνομα Τράπεζας</th>
+            <th>Οφειλούμενα (€)</th>
+            <th>Προμήθεια (€)</th>
+            <th>Ποσοστό Προμήθειας (%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Εθνική</td>
+            <td style="color: blue;">1.200,00</td>
+            <td style="color: red;">120,00</td>
+            <td>10,00%</td>
+          </tr>
+          <tr>
+            <td>Eurobank</td>
+            <td style="color: blue;">750,50</td>
+            <td style="color: red;">67,55</td>
+            <td>9,00%</td>
+          </tr>
+          <tr>
+            <td>Alpha Bank</td>
+            <td style="color: blue;">2.300,00</td>
+            <td style="color: red;">184,00</td>
+            <td>8,00%</td>
+          </tr>
+          <tr>
+            <td>Πειραιώς</td>
+            <td style="color: blue;">980,00</td>
+            <td style="color: red;">88,20</td>
+            <td>9,00%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Πίτα -->
+    <div class="pie-chart-container" style="text-align: center;">
+      <h2>Καταθέσεις ανά Τράπεζα</h2>
+      <canvas id="depositChart"></canvas>
+    </div>
+
+    <!-- Συνολικό ποσό καταθέσεων -->
+    <div class="total-deposits" id="totalDeposits"></div>
+
+  </div>
+
+  <!-- Εισαγωγή JavaScript για τη δημιουργία του Pie Chart και του συνολικού ποσού -->
+  <script>
+    // Δεδομένα για την πίτα και υπολογισμός συνολικού ποσού
+    const deposits = [1200.00, 750.50, 2300.00, 980.00];
+    const total = deposits.reduce((acc, val) => acc + val, 0);
+    
+    // Εμφάνιση του συνολικού ποσού καταθέσεων
+    document.getElementById('totalDeposits').innerText = `Συνολικό Ποσό Καταθέσεων: €${total.toFixed(2)}`;
+
+    // Δημιουργία της πίτας
+    var ctx = document.getElementById('depositChart').getContext('2d');
+    var depositChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Εθνική', 'Eurobank', 'Alpha Bank', 'Πειραιώς'],
+        datasets: [{
+          label: 'Καταθέσεις',
+          data: deposits,
+          backgroundColor: ['#e6194b', '#4363d8', '#3cb44b', '#911eb4'],
+          borderColor: '#ffffff',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          },
+          tooltip: {
+            callbacks: {
+              label: function(tooltipItem) {
+                return tooltipItem.label + ': ' + tooltipItem.raw + '€';
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
