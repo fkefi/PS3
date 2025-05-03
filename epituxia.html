@@ -4,13 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Αποτέλεσμα Διαδικασίας</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+        .success-container {
+            border: 2px solid #28a745;
+            padding: 20px;
+            margin: 20px auto;
+            text-align: center;
+            background-color: #d4edda;
+            border-radius: 8px;
+            max-width: 500px;
+        }
+
+        .success-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #155724;
+        }
+    </style>
 </head>
 <body>
-
-<!-- Περίπτωση Επιτυχίας -->
-<div style="border: 2px solid #28a745; padding: 20px; margin: 20px auto; text-align: center; background-color: #d4edda; border-radius: 8px; max-width: 500px;">
-    <p style="font-size: 18px; font-weight: bold; color: #155724;">Ολοκληρώθηκε επιτυχώς η διαδικασία</p>
-</div>
-
+    <div class="success-container">
+        <p class="success-text">Ολοκληρώθηκε επιτυχώς η διαδικασία</p>
+    </div>
 </body>
 </html>
