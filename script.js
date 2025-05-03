@@ -6,6 +6,9 @@ loginButton.addEventListener("click", function() {
     const departmentSelect = document.getElementById("department");
     const selectedRole = departmentSelect.value;
 
+    // Αποθηκεύουμε τον ρόλο στο localStorage
+    localStorage.setItem("userRole", selectedRole);
+
     // Ανακατεύθυνση ανάλογα με τον επιλεγμένο ρόλο
     switch (selectedRole) {
         case "tamio":
@@ -15,7 +18,7 @@ loginButton.addEventListener("click", function() {
             window.location.href = "voithos_logisti.html";  // Ανακατεύθυνση στη σελίδα για Βοηθό Λογιστή
             break;
         case "info":
-            window.location.href = "tameias.html";  // Ανακατεύθυνση στη σελίδα για Ταμεία
+            window.location.href = "tamias.html";  // Ανακατεύθυνση στη σελίδα για Ταμεία
             break;
         case "ceo":
             window.location.href = "ceo.html";  // Ανακατεύθυνση στη σελίδα για CEO

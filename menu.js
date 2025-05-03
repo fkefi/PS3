@@ -1,5 +1,7 @@
 function generateMenu(role) {
     const sidebar = document.querySelector(".sidebar");
+    if (!sidebar) return; // Exit if no sidebar found
+    
     sidebar.innerHTML = ''; // Καθαρίζει το μενού
 
     // Σταθερά κουμπιά για όλους
@@ -11,6 +13,8 @@ function generateMenu(role) {
             if (text === "Log out") {
                 localStorage.removeItem("userRole");
                 window.location.href = "login.html";
+            } else if (text === "Profile") {
+                // Add profile page navigation if needed
             }
         };
         sidebar.appendChild(btn);
@@ -18,22 +22,45 @@ function generateMenu(role) {
 
     // Κουμπιά ανά ρόλο
     const roleButtons = {
-        "tamias": ["Χειροκίνητη Καταγραφή", "Επεξεργασία Συναλλαγών"], // Προσθέτουμε αυτά τα κουμπιά
-        "logistis": ["Επεξεργασία", "Insights"],
-        "voithos_logisti": ["Επεξεργασία"],
-        "ceo": ["Insights", "Reports"],
-        "cfo": ["Insights"]
+        "tamio": [
+            { text: "Χειροκίνητη Καταγραφή", href: "xeirokinitiEisagwgiApokomma.html" },
+            { text: "Επεξεργασία Συναλλαγών", href: "epituxia.html" }
+        ],
+        "logistirio": [
+            { text: "Επεξεργασία", href: "epituxia.html" }
+        ],
+        "info": [
+            { text: "Επεξεργασία", href: "epituxia.html" },
+            { text: "Insights", href: "insights.html" }
+        ],
+        "ceo": [
+            { text: "Insights", href: "insights.html" },
+            { text: "Reports", href: "reports.html" }
+        ],
+        "cfo": [
+            { text: "Insights", href: "insights.html" }
+        ]
     };
 
     const extraButtons = roleButtons[role.toLowerCase()];
     if (extraButtons) {
-        extraButtons.forEach(text => {
+        extraButtons.forEach(item => {
             const btn = document.createElement("button");
-            btn.textContent = text;
+            btn.textContent = item.text;
+            btn.onclick = () => {
+                window.location.href = item.href;
+            };
             sidebar.appendChild(btn);
         });
     }
 }
 
-const userRole = localStorage.getItem("userRole") || "";
-generateMenu(userRole);
+// Check if user is logged in
+document.addEventListener('DOMContentLoaded', function() {
+    const userRole = localStorage.getItem("userRole");
+    if (!userRole && !window.location.href.includes('login.html')) {
+        window.location.href = "login.html";
+    } else {
+        generateMenu(userRole);
+    }
+});
