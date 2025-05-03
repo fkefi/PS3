@@ -1,66 +1,51 @@
-function generateMenu(role) {
-    const sidebar = document.querySelector(".sidebar");
-    if (!sidebar) return; // Exit if no sidebar found
-    
-    sidebar.innerHTML = ''; // Καθαρίζει το μενού
+// Define role-specific buttons
+const roleButtons = {
+    "tamias": ["Χειροκίνητη Καταγραφή", "Επεξεργασία Συναλλαγών"],
+    "logistis": ["Επεξεργασία", "Insights"],
+    "voithos_logisti": ["Επεξεργασία"],
+    "ceo": ["Insights", "Reports"],
+    "cfo": ["Insights"]
+};
 
-    // Σταθερά κουμπιά για όλους
-    const baseButtons = ["Profile", "Log out"];
-    baseButtons.forEach(text => {
-        const btn = document.createElement("button");
-        btn.textContent = text;
-        btn.onclick = () => {
-            if (text === "Log out") {
-                localStorage.removeItem("userRole");
-                window.location.href = "login.html";
-            } else if (text === "Profile") {
-                // Add profile page navigation if needed
+// Function to generate menu based on user role
+function generateMenu() {
+    const sidebar = document.querySelector('.sidebar');
+    if (!sidebar) return;
+
+    const userRole = localStorage.getItem('userRole');
+    if (!userRole) return;
+
+    // Clear existing menu
+    sidebar.innerHTML = '';
+
+    // Add role-specific buttons
+    const buttons = roleButtons[userRole] || [];
+    buttons.forEach(buttonText => {
+        const button = document.createElement('button');
+        button.textContent = buttonText;
+        button.onclick = function() {
+            // Add navigation logic here based on button text
+            switch(buttonText) {
+                case "Χειροκίνητη Καταγραφή":
+                    window.location.href = "xeirokinitiEisagwgiApokomma.html";
+                    break;
+                case "Επεξεργασία Συναλλαγών":
+                    window.location.href = "epitropi.html";
+                    break;
+                case "Επεξεργασία":
+                    window.location.href = "epitropi.html";
+                    break;
+                case "Insights":
+                    window.location.href = "insights.html";
+                    break;
+                case "Reports":
+                    window.location.href = "reports.html";
+                    break;
             }
         };
-        sidebar.appendChild(btn);
+        sidebar.appendChild(button);
     });
-
-    // Κουμπιά ανά ρόλο
-    const roleButtons = {
-        "tamio": [
-            { text: "Χειροκίνητη Καταγραφή", href: "xeirokinitiEisagwgiApokomma.html" },
-            { text: "Επεξεργασία Συναλλαγών", href: "epituxia.html" }
-        ],
-        "logistirio": [
-            { text: "Επεξεργασία", href: "epituxia.html" }
-        ],
-        "info": [
-            { text: "Επεξεργασία", href: "epituxia.html" },
-            { text: "Insights", href: "insights.html" }
-        ],
-        "ceo": [
-            { text: "Insights", href: "insights.html" },
-            { text: "Reports", href: "reports.html" }
-        ],
-        "cfo": [
-            { text: "Insights", href: "insights.html" }
-        ]
-    };
-
-    const extraButtons = roleButtons[role.toLowerCase()];
-    if (extraButtons) {
-        extraButtons.forEach(item => {
-            const btn = document.createElement("button");
-            btn.textContent = item.text;
-            btn.onclick = () => {
-                window.location.href = item.href;
-            };
-            sidebar.appendChild(btn);
-        });
-    }
 }
 
-// Check if user is logged in
-document.addEventListener('DOMContentLoaded', function() {
-    const userRole = localStorage.getItem("userRole");
-    if (!userRole && !window.location.href.includes('login.html')) {
-        window.location.href = "login.html";
-    } else {
-        generateMenu(userRole);
-    }
-});
+// Generate menu when the page loads
+document.addEventListener('DOMContentLoaded', generateMenu);

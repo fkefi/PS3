@@ -23,9 +23,9 @@
 
                 <label for="department">Rule:</label>
                 <select id="department" name="department">
-                    <option value="tamio">Λογιστής</option>
-                    <option value="logistirio">Βοηθός Λογιστή</option>
-                    <option value="info">Ταμείας</option>
+                    <option value="tamias">Ταμείας</option>
+                    <option value="logistis">Λογιστής</option>
+                    <option value="voithos_logisti">Βοηθός Λογιστή</option>
                     <option value="ceo">CEO</option>
                     <option value="cfo">CFO</option>
                 </select>
@@ -35,7 +35,7 @@
                     <label for="rememberMe">Διατήρηση Σύνδεσης</label>
                 </div>
 
-                <button type="button" class="center-btn" id="loginButton">Σύνδεση</button>
+                <button type="button" class="center-btn" id="loginButton" onclick="login()">Σύνδεση</button>
 
                 <a href="#" class="forgot-password">Ξεχάσατε τον κωδικό σας;</a>
             </form>
@@ -44,19 +44,11 @@
 
     <script src="menu.js"></script>
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const role = document.getElementById('department').value;
-            
-            // Store user info in localStorage
-            localStorage.setItem('username', username);
-            localStorage.setItem('role', role);
-            
-            // Redirect based on role
-            window.location.href = role + '.html';
-        });
+        function login() {
+            const role = document.getElementById("department").value;
+            localStorage.setItem("userRole", role);
+            window.location.href = "home.html";
+        }
     </script>
 </body>
 </html>
