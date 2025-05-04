@@ -11,20 +11,20 @@ loginButton.addEventListener("click", function() {
 
     // Ανακατεύθυνση ανάλογα με τον επιλεγμένο ρόλο
     switch (selectedRole) {
-        case "tamio":
-            window.location.href = "logistis.html";  // Ανακατεύθυνση στη σελίδα για Λογιστή
+        case "tamias":
+            window.location.href = "xeirokinitiEisagwgiApokomma.html";  // Ανακατεύθυνση στη σελίδα για Ταμεία
             break;
-        case "logistirio":
-            window.location.href = "voithos_logisti.html";  // Ανακατεύθυνση στη σελίδα για Βοηθό Λογιστή
+        case "voithos_logisti":
+            window.location.href = "records.html";  // Ανακατεύθυνση στη σελίδα για Βοηθό Λογιστή
             break;
-        case "info":
-            window.location.href = "tamias.html";  // Ανακατεύθυνση στη σελίδα για Ταμεία
+        case "logistis":
+            window.location.href = "insights.html";  // Ανακατεύθυνση στη σελίδα για Λογιστή
             break;
         case "ceo":
-            window.location.href = "ceo.html";  // Ανακατεύθυνση στη σελίδα για CEO
+            window.location.href = "reports.html";  // Ανακατεύθυνση στη σελίδα για CEO
             break;
         case "cfo":
-            window.location.href = "cfo.html";  // Ανακατεύθυνση στη σελίδα για CFO
+            window.location.href = "insights.html";  // Ανακατεύθυνση στη σελίδα για CFO
             break;
         default:
             alert("Παρακαλώ επιλέξτε έναν ρόλο.");
