@@ -18,6 +18,23 @@ function generateMenu() {
     // Clear existing menu
     sidebar.innerHTML = '';
 
+    // Add constant buttons: Log Out and Profile
+    const profileButton = document.createElement('button');
+    profileButton.textContent = "Profile";
+    profileButton.onclick = function() {
+        window.location.href = "profile.html"; // Αντίστοιχη σελίδα προφίλ
+    };
+    sidebar.appendChild(profileButton);
+
+    const logoutButton = document.createElement('button');
+    logoutButton.textContent = "Log Out";
+    logoutButton.onclick = function() {
+        // Καθαρισμός του localStorage και επιστροφή στη σελίδα σύνδεσης
+        localStorage.removeItem('userRole');
+        window.location.href = "login.html"; // Σελίδα σύνδεσης
+    };
+    sidebar.appendChild(logoutButton);
+
     // Add role-specific buttons
     const buttons = roleButtons[userRole] || [];
     buttons.forEach(buttonText => {
